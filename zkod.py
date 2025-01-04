@@ -50,7 +50,7 @@ def mesafe_olc():
 # Alarm kontrolü
 def alarm_kontrol():
     simdi = datetime.now()
-    if simdi.hour == 18 and simdi.minute == 0:
+    if simdi.hour == 8 and simdi.minute == 30:
         print("Alarm çalıyor! Buzzer ve kırmızı LED aktif.")
         GPIO.output(BUZZER_PIN, GPIO.HIGH)  # Buzzer'ı aktif et
         GPIO.output(RED_LED_PIN, GPIO.HIGH)  # Kırmızı LED'i aktif et
