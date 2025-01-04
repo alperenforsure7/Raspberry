@@ -8,7 +8,7 @@ from datetime import datetime
 # GPIO pinlerinin tanımlanması
 TRIG_PIN = 23       # HC-SR04 Trig pini
 ECHO_PIN = 24       # HC-SR04 Echo pini
-LED_PIN = 18        # LED pini
+LED_PIN = 17        # Mavi LED pini
 BUZZER_PIN = 16     # Buzzer pini
 RED_LED_PIN = 12    # Kırmızı LED pini
 
@@ -62,9 +62,9 @@ def alarm_kontrol():
 # Ana program
 try:
     # Playlist yükle
-    playlist = playlist_yukle("playlist.txt")
+    playlist = playlist_yukle("aaaplaylist.txt")
     if not playlist:
-        raise Exception("Playlist boş veya geçerli şarkı bulunamadı. Lütfen 'playlist.txt' dosyasını kontrol edin.")
+        raise Exception("Playlist boş veya geçerli şarkı bulunamadı. Lütfen 'aaaplaylist.txt' dosyasını kontrol edin.")
 
     print("Sistem çalışıyor. Ultrasonik sensör ve alarm aktif.")
     
@@ -100,7 +100,7 @@ try:
                 music_caliyor = True
 
         # Süreleri kontrol et
-        if led_zaman and time.time() - led_zaman > 10:
+        if led_zaman and time.time() - led_zaman > 1800:
             GPIO.output(LED_PIN, GPIO.LOW)  # LED'i kapat
             led_zaman = None
 
